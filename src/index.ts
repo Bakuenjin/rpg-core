@@ -26,8 +26,6 @@ import RngUtils from "./utils/RngUtils";
 import StringUtils from "./utils/StringUtils";
 import * as Types from './utils/types'
 
-Stage
-
 export {
 	ElementType,
 	Attribute,
