@@ -21,8 +21,8 @@ But keep in mind, that these system implementations are very barebone to allow f
 
 ## Installation
 
-npm: `npm install rpg-core`
+npm: `npm install @bakuenjin/rpg-core`
 
-yarn (recommended): `yarn add rpg-core`
+yarn (recommended): `yarn add @bakuenjin/rpg-core`
 
 RPG-Core comes with type definitions out of the box, so no additional types package needs to be installed.
