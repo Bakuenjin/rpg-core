@@ -3,8 +3,9 @@ import { DungeonOptions, Reward } from "../../utils/types"
 import Enemy from "./Enemy"
 import RewardHandler from "./RewardHandler"
 import Stage from "./Stage"
+import Identifiable from "../misc/Identifiable"
 
-export default class Dungeon {
+export default class Dungeon implements Identifiable {
 	
 	public readonly id: number
 	public readonly name: string

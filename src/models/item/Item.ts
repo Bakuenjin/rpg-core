@@ -1,6 +1,7 @@
+import Identifiable from "../misc/Identifiable"
 import Rarity from "./Rarity"
 
-export default class Item {
+export default class Item implements Identifiable {
 
 	public readonly id: number
 	public readonly name: string

@@ -2,11 +2,12 @@ import LevelUtils from "../../utils/LevelUtils"
 import { AttributeInfo, CharacterOptions } from "../../utils/types"
 import Inventory from "../item/Inventory"
 import Attribute from "../misc/Attribute"
+import Identifiable from "../misc/Identifiable"
 import CharacterStats from "./CharacterStats"
 import Equipment from "./Equipment"
 import LevelInfo from "./LevelInfo"
 
-export default class Character {
+export default class Character implements Identifiable {
 
 	public readonly id: number
 	public readonly name: string

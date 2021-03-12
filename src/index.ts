@@ -17,6 +17,7 @@ import Rarity from "./models/item/Rarity";
 import CraftingRecipe from "./models/item/CraftingRecipe";
 import Attribute from "./models/misc/Attribute";
 import ElementType from "./models/misc/ElementType";
+import Identifiable from './models/misc/Identifiable'
 import Weapon from "./models/weapon/Weapon";
 import WeaponType from "./models/weapon/WeaponType";
 import AttributeUtils from "./utils/AttributeUtils";
@@ -27,6 +28,7 @@ import StringUtils from "./utils/StringUtils";
 import * as Types from './utils/types'
 
 export {
+	Identifiable,
 	ElementType,
 	Attribute,
 	Item,

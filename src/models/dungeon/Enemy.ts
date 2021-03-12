@@ -1,9 +1,10 @@
 import { EnemyOptions, Reward } from "../../utils/types"
 import Attribute from "../misc/Attribute"
 import ElementType from "../misc/ElementType"
+import Identifiable from "../misc/Identifiable"
 import RewardHandler from "./RewardHandler"
 
-export default class Enemy {
+export default class Enemy implements Identifiable {
 
 	public readonly id: number
 	public readonly name: string

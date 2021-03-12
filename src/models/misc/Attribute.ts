@@ -1,6 +1,7 @@
 import AttributeUtils from '../../utils/AttributeUtils'
+import Identifiable from './Identifiable'
 
-export default class Attribute {
+export default class Attribute implements Identifiable {
 
 	public readonly id: number
 	public readonly name: string
