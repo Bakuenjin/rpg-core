@@ -1,5 +1,5 @@
 {
-  "name": "rpg-core",
+  "name": "@bakuenjin/rpg-core",
   "version": "1.0.0",
   "main": "./out/index.js",
   "scripts": {
