@@ -4,8 +4,9 @@
   "main": "./out/index.js",
   "scripts": {
     "start": "tsc && node .",
-	"test": "jest",
-	"coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts --collectCoverageFrom=!src/**/*.d.ts"
+    "build": "tsc",
+	  "test": "jest",
+	  "coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts --collectCoverageFrom=!src/**/*.d.ts"
   },
   "license": "MIT",
   "dependencies": {
