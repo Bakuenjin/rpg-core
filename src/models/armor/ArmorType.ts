@@ -1,9 +1,9 @@
 enum ArmorType {
-	Helmet = 'Helmet',
-	ChestArmor = 'ChestArmor',
-	Bracer = 'Bracer',
-	Greave = 'Greave',
-	Boot = 'Boot'
+	Helmet = 1,
+	ChestArmor = 2,
+	Bracer = 3,
+	Greave = 4,
+	Boot = 5
 }
 
 export default ArmorType

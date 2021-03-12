@@ -1,8 +1,8 @@
 enum ElementType {
-	Fire = 'Fire',
-	Water = 'Water',
-	Nature = 'Nature',
-	None = 'None'
+	None = 1,
+	Fire = 2,
+	Water = 3,
+	Nature = 4
 }
 
 export default ElementType

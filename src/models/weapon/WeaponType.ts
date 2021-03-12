@@ -1,7 +1,7 @@
 enum WeaponType {
-	Sword = 'Sword',
-	Bow = 'Bow',
-	Wand = 'Wand'
+	Sword = 1,
+	Bow = 2,
+	Wand = 3
 }
 
 export default WeaponType
