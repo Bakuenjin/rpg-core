@@ -3,9 +3,9 @@ import { AttributeInfo } from "../../../src/utils/types"
 
 describe('Character class', () => {
 
-	const atkAttribute: Attribute = new Attribute(1, 'ATK', 1)
-	const defAttribute: Attribute = new Attribute(2, 'DEF', 2)
-	const hpAttribute: Attribute = new Attribute(3, 'HP', '50*x')
+	const atkAttribute: Attribute = new Attribute(1, 'ATK', 10, 1)
+	const defAttribute: Attribute = new Attribute(2, 'DEF', 5, 2)
+	const hpAttribute: Attribute = new Attribute(3, 'HP', 100, '50*x')
 
 	const weaponAttributes: Map<Attribute, number> = new Map<Attribute, number>()
 	const armorAttributes: Map<Attribute, number> = new Map<Attribute, number>()
