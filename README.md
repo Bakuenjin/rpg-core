@@ -2,8 +2,8 @@
 
 ## Table of contents
 
- - [About] (#about)
- - [Installation] (#installation)
+ - [About](#about)
+ - [Installation](#installation)
 
 ## About
 
