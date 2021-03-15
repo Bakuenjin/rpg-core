@@ -30,7 +30,12 @@ export default class Character implements Identifiable {
 		this._stats = new CharacterStats(options.attributes)
 
 		this.inventory = new Inventory(options.inventory)
-		this.equipment = new Equipment(options.weapons, options.armors, options.currentWeapon, options.currentArmor)
+		this.equipment = new Equipment({
+			weapons: options.weapons,
+			armors: options.armors,
+			currentWeapon: options.currentWeapon,
+			currentArmor: options.currentArmor
+		})
 	}
 
 	getLevelInfo(): LevelInfo {

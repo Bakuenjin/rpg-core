@@ -53,10 +53,10 @@ export type CharacterOptions = {
 	skillPoints?: number
 	balance?: number
 	inventory?: Map<Item, number>
-	weapons: Weapon[]
-	armors: Armor[]
-	currentWeapon: Weapon
-	currentArmor: Map<ArmorType, Armor>
+	weapons?: Weapon[]
+	armors?: Armor[]
+	currentWeapon?: Weapon
+	currentArmor?: Map<ArmorType, Armor>
 }
 
 export type ItemDropChance = {
