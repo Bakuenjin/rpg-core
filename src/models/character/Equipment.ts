@@ -74,6 +74,17 @@ export default class Equipment {
 		return false
 	}
 
+	unsetCurrentWeapon(): void {
+		this._currentWeapon = undefined
+	}
+
+	unsetCurrentArmor(type?: ArmorType): void {
+		if (!type)
+			this._currentArmor = new Map<ArmorType, Armor>()
+		else
+			this._currentArmor.delete(type)
+	}
+
 	addWeapon(weapon: Weapon, setAsCurrentWeapon: boolean = false): void {
 		this._weapons.push(weapon)
 
@@ -83,7 +94,7 @@ export default class Equipment {
 
 	removeWeapon(weapon: Weapon): boolean {
 		if (this._currentWeapon === weapon)
-			return false
+			this.unsetCurrentWeapon()
 
 		const index = this._weapons.findIndex(ownedWeapon => ownedWeapon === weapon)
 
@@ -104,7 +115,7 @@ export default class Equipment {
 
 	removeArmor(armor: Armor): boolean {
 		if (this._currentArmor.get(armor.type) === armor)
-			return false
+			this.unsetCurrentArmor(armor.type)
 
 		const index = this._armors.findIndex(ownedArmor => ownedArmor === armor)
 

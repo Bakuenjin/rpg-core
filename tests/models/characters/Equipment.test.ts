@@ -93,6 +93,24 @@ describe('Equipment class', () => {
 		expect(equipment.getCurrentArmor().get(armor1.type)).toBe(armor1)
 	})
 
+	it('can unset the current weapon', () => {
+		expect(equipment.getCurrentWeapon()).toBe(weapon1)
+		equipment.unsetCurrentWeapon()
+		expect(equipment.getCurrentWeapon()).toBe(undefined)
+	})
+
+	it('can unset the complete current armor', () => {
+		expect(equipment.getCurrentArmor().size).toBe(1)
+		equipment.unsetCurrentArmor()
+		expect(equipment.getCurrentArmor().size).toBe(0)
+	})
+
+	it('can unset a single armor piece from the current armor', () => {
+		expect(equipment.getCurrentArmor().size).toBe(1)
+		equipment.unsetCurrentArmor(armor1.type)
+		expect(equipment.getCurrentArmor().size).toBe(0)
+	})
+
 	it('can add additional weapons to the list of owned weapons', () => {
 		expect(equipment.getCurrentWeapon()).toBe(weapon1)
 		expect(equipment.setCurrentWeapon(weapon3)).toBe(false)
@@ -118,8 +136,10 @@ describe('Equipment class', () => {
 		expect(equipment.getWeapons().length).toBe(2)
 	})
 
-	it('cannot remove a weapon, if it is currently equipped', () => {
-		expect(equipment.removeWeapon(weapon1)).toBe(false)
+	it('unsets the current weapon, if it is removed', () => {
+		expect(equipment.getCurrentWeapon()).toBe(weapon1)
+		expect(equipment.removeWeapon(weapon1)).toBe(true)
+		expect(equipment.getCurrentWeapon()).toBeUndefined()
 	})
 
 	it('can add additional armor to the list of owned armor', () => {
@@ -147,8 +167,10 @@ describe('Equipment class', () => {
 		expect(equipment.getArmors().length).toBe(2)
 	})
 
-	it('cannot remove armor, if it is currently equipped', () => {
-		expect(equipment.removeArmor(armor1)).toBe(false)
+	it('unsets current armor piece, if it is removed', () => {
+		expect(equipment.getCurrentArmor().get(armor1.type)).toBe(armor1)
+		expect(equipment.removeArmor(armor1)).toBe(true)
+		expect(equipment.getCurrentArmor().get(armor1.type)).toBe(undefined)
 	})
 
 })
