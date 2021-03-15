@@ -12,7 +12,7 @@ describe('CraftingRecipe class', () => {
 	beforeAll(() => {
 		weapon = new Weapon(1, 'a', Rarity.Common, WeaponType.Sword, ElementType.Fire, new Map())
 		levelReq = new LevelRequirement(12)
-		recipe = new CraftingRecipe(weapon, [ levelReq ])
+		recipe = new CraftingRecipe(1, weapon, [ levelReq ])
 
 		// It is not a real Character instance,
 		// but implements enough for this purpose
