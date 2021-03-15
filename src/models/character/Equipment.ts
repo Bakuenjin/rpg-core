@@ -1,3 +1,4 @@
+import { EquipmentOptions } from "../../utils/types";
 import Armor from "../armor/Armor";
 import ArmorType from "../armor/ArmorType";
 import Attribute from "../misc/Attribute";
@@ -8,18 +9,24 @@ export default class Equipment {
 	private _weapons: Weapon[]
 	private _armors: Armor[]
 
-	private _currentWeapon: Weapon
+	private _currentWeapon?: Weapon
 	private _currentArmor: Map<ArmorType, Armor>
 
-	constructor(weapons: Weapon[], armors: Armor[], currentWeapon: Weapon, currentArmor: Map<ArmorType, Armor>) {
-		this._weapons = weapons
-		this._armors = armors
-		this._currentWeapon = currentWeapon
-		this._currentArmor = new Map<ArmorType, Armor>(currentArmor)
+	constructor(options?: EquipmentOptions) {
+		if (!options) options = {}
+
+		this._weapons = options.weapons ? [ ...options.weapons ] : []
+		this._armors = options.armors ? [ ...options.armors ] : []
+		this._currentWeapon = options.currentWeapon
+		this._currentArmor = options.currentArmor ?
+			new Map<ArmorType, Armor>(options.currentArmor) :
+			new Map<ArmorType, Armor>()
 	}
 
 	getCurrentAttributes(): Map<Attribute, number> {
-		const attributes = this._currentWeapon.getAttributes()
+		const attributes = this._currentWeapon ?
+			this._currentWeapon.getAttributes() :
+			new Map<Attribute, number>()
 
 		this._currentArmor.forEach((armor) => {
 			const armorAttributes = armor.getAttributes()
@@ -41,7 +48,7 @@ export default class Equipment {
 		return [ ...this._armors ]
 	}
 
-	getCurrentWeapon(): Weapon {
+	getCurrentWeapon(): Weapon | undefined {
 		return this._currentWeapon
 	}
 

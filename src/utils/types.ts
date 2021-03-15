@@ -37,6 +37,13 @@ export type RequirementFulfilledInfo = {
 	isFulfilled: boolean
 }
 
+export type EquipmentOptions = {
+	weapons?: Weapon[]
+	armors?: Armor[]
+	currentWeapon?: Weapon
+	currentArmor?: Map<ArmorType, Armor>
+}
+
 export type CharacterOptions = {
 	id: number
 	name: string

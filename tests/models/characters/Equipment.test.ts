@@ -2,8 +2,8 @@ import { Armor, ArmorType, Attribute, ElementType, Equipment, Rarity, Weapon, We
 
 describe('Equipment class', () => {
 
-	const atkAttribute: Attribute = new Attribute(1, 'ATK', 1)
-	const defAttribute: Attribute = new Attribute(2, 'DEF', 2)
+	const atkAttribute: Attribute = new Attribute(1, 'ATK', 10, 1)
+	const defAttribute: Attribute = new Attribute(2, 'DEF', 5, 2)
 	const weaponAttributes: Map<Attribute, number> = new Map<Attribute, number>()
 	const armorAttributes: Map<Attribute, number> = new Map<Attribute, number>()
 
@@ -14,7 +14,7 @@ describe('Equipment class', () => {
 	const weapon1: Weapon = new Weapon(1, 'weapon1', Rarity.Common, WeaponType.Bow, ElementType.Fire, weaponAttributes)
 	const weapon2: Weapon = new Weapon(2, 'weapon2', Rarity.Uncommon, WeaponType.Sword, ElementType.Nature, weaponAttributes)
 	const weapon3: Weapon = new Weapon(3, 'weapon3', Rarity.Uncommon, WeaponType.Sword, ElementType.Nature, weaponAttributes)
-	
+
 	const armor1: Armor = new Armor(1, 'armor1', Rarity.Epic, ArmorType.Boot, ElementType.Nature, armorAttributes)
 	const armor2: Armor = new Armor(2, 'armor2', Rarity.Rare, ArmorType.Boot, ElementType.Water, armorAttributes)
 	const armor3: Armor = new Armor(3, 'armor3', Rarity.Rare, ArmorType.Boot, ElementType.Water, armorAttributes)
@@ -23,9 +23,18 @@ describe('Equipment class', () => {
 	currentArmor.set(armor1.type, armor1)
 
 	let equipment: Equipment
+	let emptyEquipment: Equipment
 
 	beforeEach(() => {
-		equipment = new Equipment([ weapon1, weapon2 ], [ armor1, armor2 ], weapon1, currentArmor)
+		// equipment = new Equipment([ weapon1, weapon2 ], [ armor1, armor2 ], weapon1, currentArmor)
+		equipment = new Equipment({
+			weapons: [ weapon1, weapon2 ],
+			armors: [ armor1, armor2 ],
+			currentWeapon: weapon1,
+			currentArmor: currentArmor
+		})
+
+		emptyEquipment = new Equipment()
 	})
 
 	it('can calculate the sum of all attribute stats of the current weapon and armors', () => {
@@ -33,6 +42,11 @@ describe('Equipment class', () => {
 
 		expect(sumAttributes.get(atkAttribute)).toBe(25)
 		expect(sumAttributes.get(defAttribute)).toBe(25)
+	})
+
+	it('has no attributes if the equipment is empty', () => {
+		const sumAttributes = emptyEquipment.getCurrentAttributes()
+		expect(sumAttributes.size).toBe(0)
 	})
 
 	it('can return all owned weapons', () => {
