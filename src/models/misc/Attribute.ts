@@ -1,17 +1,13 @@
 import AttributeUtils from '../../utils/AttributeUtils'
 import Identifiable from './Identifiable'
 
-export default class Attribute implements Identifiable {
-
-	public readonly id: number
-	public readonly name: string
+export default class Attribute extends Identifiable {
 	
 	private _baseValue: number
 	private _increaseRate: number | string
 
 	constructor(id: number, name: string, baseValue: number, increaseRate: number | string) {
-		this.id = id
-		this.name = name
+		super(id, name)
 		this._baseValue = baseValue
 		this._increaseRate = increaseRate
 	}

@@ -24,7 +24,7 @@ describe('Enemy class', () => {
 			experience: 1337
 		})
 
-		atkAttribute = new Attribute(3, 'ATK', 42)
+		atkAttribute = new Attribute(3, 'ATK', 42, 10)
 		attributes = new Map<Attribute, number>()
 		attributes.set(atkAttribute, 69)
 

@@ -3,14 +3,13 @@ import Character from "../character/Character";
 import Identifiable from "../misc/Identifiable";
 import IRequirement from "./IRequirement";
 
-export default class CraftingRecipe<T> implements Identifiable {
+export default class CraftingRecipe<T> extends Identifiable {
 
-	public readonly id: number
 	public readonly result: T
 	private _requirements: IRequirement[]
 
-	constructor(id: number, result: T, requirements: IRequirement[]) {
-		this.id = id
+	constructor(id: number, name: string, result: T, requirements: IRequirement[]) {
+		super(id, name)
 		this.result = result
 		this._requirements = requirements
 	}

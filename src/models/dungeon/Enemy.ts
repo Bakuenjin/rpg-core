@@ -4,10 +4,8 @@ import ElementType from "../misc/ElementType"
 import Identifiable from "../misc/Identifiable"
 import RewardHandler from "./RewardHandler"
 
-export default class Enemy implements Identifiable {
+export default class Enemy extends Identifiable {
 
-	public readonly id: number
-	public readonly name: string
 	public readonly element: ElementType
 	public readonly level: number
 	
@@ -15,8 +13,7 @@ export default class Enemy implements Identifiable {
 	private _rewardHandler: RewardHandler
 
 	constructor(options: EnemyOptions) {
-		this.id = options.id
-		this.name = options.name
+		super(options.id, options.name)
 		this.element = options.element
 		this.level = options.level
 

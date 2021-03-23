@@ -7,7 +7,7 @@ describe('Armor class', () => {
 	let armor: Armor
 
 	beforeAll(() => {
-		defAttribute = new Attribute(1, 'DEF', 2)
+		defAttribute = new Attribute(1, 'DEF', 10, 2)
 		attributes = new Map<Attribute, number>()
 		attributes.set(defAttribute, 10)
 		armor = new Armor(10, 'a', Rarity.Rare, ArmorType.Helmet, ElementType.Nature, attributes)
