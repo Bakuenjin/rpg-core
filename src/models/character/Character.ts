@@ -7,10 +7,8 @@ import CharacterStats from "./CharacterStats"
 import Equipment from "./Equipment"
 import LevelInfo from "./LevelInfo"
 
-export default class Character implements Identifiable {
+export default class Character extends Identifiable {
 
-	public readonly id: number
-	public readonly name: string
 	public inventory: Inventory
 	public equipment: Equipment
 
@@ -21,8 +19,7 @@ export default class Character implements Identifiable {
 	private _skillPoints: number
 
 	constructor(options: CharacterOptions) {
-		this.id = options.id
-		this.name = options.name
+		super(options.id, options.name)
 		this._balance = options.balance ? options.balance : 0
 		this._level = options.level ? options.level : 1
 		this._experience = options.experience ? options.experience : 0

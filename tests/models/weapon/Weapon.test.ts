@@ -7,7 +7,7 @@ describe('Weapon class', () => {
 	let weapon: Weapon
 
 	beforeAll(() => {
-		atkAttribute = new Attribute(1, 'ATK', 2)
+		atkAttribute = new Attribute(1, 'ATK', 10, 2)
 		attributes = new Map<Attribute, number>()
 		attributes.set(atkAttribute, 10)
 		weapon = new Weapon(10, 'w', Rarity.Epic, WeaponType.Bow, ElementType.None, attributes)
